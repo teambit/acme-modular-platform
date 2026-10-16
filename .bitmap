@@ -12,47 +12,37 @@
     "entities/customer": {
         "name": "entities/customer",
         "scope": "acme-modular.platform",
-        "version": "174861c1125e14eb07fedb0b63f7485c9940a8bf",
+        "version": "2ff0277a4f19e434265bdb2299a6c4048dac9e17",
         "mainFile": "index.ts",
-        "rootDir": "platform/entities/customer",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/entities/customer"
     },
     "entities/money": {
         "name": "entities/money",
         "scope": "acme-modular.platform",
-        "version": "e6ba398cc34a2394ad6be39add6da23385fabe1a",
+        "version": "8f8b3bea19f1901464b29b957b8eebf44ae719f0",
         "mainFile": "index.ts",
-        "rootDir": "platform/entities/money",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/entities/money"
     },
     "entities/order": {
         "name": "entities/order",
         "scope": "acme-modular.platform",
-        "version": "3437c4bd65712196b850a98376e48a6e89767487",
+        "version": "724be3c63903c4a8a55a108766cfe41de5647fb5",
         "mainFile": "index.ts",
-        "rootDir": "platform/entities/order",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/entities/order"
     },
     "entities/product": {
         "name": "entities/product",
         "scope": "acme-modular.platform",
-        "version": "a91318a13290d883f2f80750a4c7af5482c314f2",
+        "version": "3d0a31a4d06fd8b5f80459b67fc2d59fb2eb829a",
         "mainFile": "index.ts",
-        "rootDir": "platform/entities/product",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/entities/product"
     },
     "hooks/use-fetch": {
         "name": "hooks/use-fetch",
         "scope": "acme-modular.platform",
-        "version": "ed8de449e454eed965140f6b9c3eee1800a6b7ba",
+        "version": "d06e9f9a22f0c3c821d672e4fc06476251201a38",
         "mainFile": "index.ts",
-        "rootDir": "platform/hooks/use-fetch",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/hooks/use-fetch"
     },
     "utils/format-price": {
         "name": "utils/format-price",
@@ -66,9 +56,7 @@
         "scope": "acme-modular.platform",
         "version": "5f9fbf5a43552ab6d683dada0fba4c431e76490c",
         "mainFile": "index.ts",
-        "rootDir": "platform/utils/http-client",
-        "onLanesOnly": true,
-        "isAvailableOnCurrentLane": true
+        "rootDir": "platform/utils/http-client"
     },
     "utils/slugify": {
         "name": "utils/slugify",
