@@ -1,0 +1,33 @@
+---
+description: 'Runs an async loader and tracks data, error and loading.'
+labels: ['hook', 'react', 'data', 'platform']
+---
+
+`useFetch` is the base of every ACME data hook (`useProducts`, `useInvoices`, `useShipment`...). A newer run always wins, so a slow response never overwrites a fresh one.
+
+## Load data
+
+```tsx
+import { useFetch } from '@acme-modular/platform.hooks.use-fetch';
+
+export function Products() {
+  const { data, loading, error } = useFetch(() => api.get<PlainProduct[]>('/products'));
+  if (loading) return <Spinner />;
+  if (error) return <Alert tone="negative">{error.message}</Alert>;
+  return <ProductGrid products={data!.map(Product.from)} />;
+}
+```
+
+## Re-run on input
+
+```tsx
+const { data } = useFetch(() => api.get(`/products?q=${query}`), [query]);
+```
+
+## Reload after a mutation
+
+```tsx
+const { data, reload } = useFetch(loadInvoices);
+await api.post('/invoices/pay', { id });
+reload();
+```

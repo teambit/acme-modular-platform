@@ -1,0 +1,27 @@
+---
+labels: ['customer', 'entity', 'platform']
+description: 'An ACME customer and their saved addresses.'
+---
+
+`Customer` holds identity and saved shipping addresses. Accounts owns the session; checkout and shipping read the addresses.
+
+## Default address
+
+```ts
+import { Customer } from '@acme-modular/platform.entities.customer';
+
+const customer = Customer.from(plainCustomer);
+customer.defaultAddress?.city;
+```
+
+## Add an address
+
+```ts
+const updated = customer.withAddress(newAddress); // returns a new Customer
+```
+
+## Demo data
+
+```ts
+import { mockCustomer } from '@acme-modular/platform.entities.customer';
+```
