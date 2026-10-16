@@ -1,0 +1,29 @@
+---
+labels: ['money', 'entity', 'platform']
+description: 'An immutable amount of money in integer cents.'
+---
+
+`Money` keeps amounts as integer cents and formats them only at the edge, so cart, checkout and billing totals never drift.
+
+## Totals
+
+```ts
+import { Money } from '@acme-modular/platform.entities.money';
+
+const subtotal = new Money(4900).multiply(2).add(new Money(39900));
+subtotal.format(); // "$497.00"
+```
+
+## Discounts
+
+```ts
+const discount = subtotal.percent(10); // rounded down in the buyer's favor
+subtotal.subtract(discount).format();
+```
+
+## Serialization
+
+```ts
+const plain = subtotal.toObject(); // { amountCents: 49700, currency: 'USD' }
+Money.from(plain);
+```

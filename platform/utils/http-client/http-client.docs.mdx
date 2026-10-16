@@ -1,0 +1,33 @@
+---
+labels: ['http', 'fetch', 'platform']
+description: 'A small JSON client over fetch, with a swappable transport.'
+---
+
+Every ACME data hook talks to the backend through this client. Swapping the transport for tests, previews or a mock backend never touches the hooks.
+
+## Call an API
+
+```ts
+import { createHttpClient } from '@acme-modular/platform.utils.http-client';
+
+const api = createHttpClient({ baseUrl: 'https://api.acme.example/v1', headers: { authorization: `Bearer ${token}` } });
+const products = await api.get<PlainProduct[]>('/products');
+```
+
+## Handle errors
+
+```ts
+try {
+  await api.post('/orders', order);
+} catch (error) {
+  if (error instanceof HttpError && error.status === 409) showOutOfStock();
+}
+```
+
+## Mock backend
+
+```ts
+const api = createHttpClient({
+  transport: createMockTransport({ 'GET /products': () => plainMockProducts }, { latencyMs: 300 }),
+});
+```

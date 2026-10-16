@@ -1,0 +1,28 @@
+---
+labels: ['order', 'entity', 'platform']
+description: 'A placed order, shared by checkout, payments, shipping and billing.'
+---
+
+Checkout creates an `Order`, payments mark it `paid`, shipping moves it to `shipped` and `delivered`, and billing invoices it.
+
+## Totals
+
+```ts
+import { Order } from '@acme-modular/platform.entities.order';
+
+const order = Order.from(plainOrder);
+order.subtotal.format();
+order.total.format(); // subtotal - discount + shipping
+```
+
+## Status changes
+
+```ts
+const paid = order.withStatus('paid'); // a new instance; the original is unchanged
+```
+
+## Demo data
+
+```ts
+import { mockOrders } from '@acme-modular/platform.entities.order';
+```

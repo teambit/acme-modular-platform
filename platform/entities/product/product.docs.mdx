@@ -1,0 +1,33 @@
+---
+labels: ['product', 'entity', 'platform']
+description: 'The catalog product every ACME scope shares.'
+---
+
+`Product` is the one product shape the store, cart, checkout and billing agree on. Prices are `Money`, so they stay in integer cents.
+
+## Create from data
+
+```ts
+import { Product } from '@acme-modular/platform.entities.product';
+
+const lamp = Product.from({
+  id: 'p-300', name: 'Desk Lamp', description: 'Dimmable LED.',
+  priceCents: 4900, category: 'lighting', stock: 120,
+});
+lamp.slug;           // "desk-lamp"
+lamp.price.format(); // "$49.00"
+```
+
+## Search
+
+```ts
+products.filter((product) => product.matches('ergonomic'));
+```
+
+## Demo catalog
+
+`mockProducts()` returns the twelve-product ACME demo catalog that previews and tests across every scope use.
+
+```ts
+import { mockProducts } from '@acme-modular/platform.entities.product';
+```
